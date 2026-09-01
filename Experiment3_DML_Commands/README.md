@@ -47,123 +47,232 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+-- Update the reorder level to 40 pieces for all products belonging to the 'Grocery' category in the products table.
 
-```sql
--- Paste your SQL code below for Question 1
+PRODUCTS TABLE
+
+name type
+
+product_id INT product_name VARCHAR(100) category VARCHAR(50) cost_price DECIMAL(10,2) sell_price DECIMAL(10,2) reorder_lvl INT quantity INT supplier_id INT 
+
+For example:
+
+Test Result select changes(); changes()
+
+4
+```
+UPDATE products
+set reorder_lvl=40
+where category='Grocery';
 ```
 
 **Output:**
-
-![Output1](output.png)
+<img width="850" height="305" alt="image" src="https://github.com/user-attachments/assets/f981f448-e3db-4e4f-973b-0a52db08f9f3" />
 
 **Question 2**
----
--- Paste Question 2 here
+--- Write a SQL statement to Update the product_name to 'Premium Bread' whose product ID is 5 in the products table.
 
+Products table
+--
+product_id product_name category cost_price sell_price reorder_lvl quantity supplier_id
 ```sql
--- Paste your SQL code below for Question 2
+UPDATE products
+set product_name ='Premium Bread' 
+where product_id=5;
 ```
 
 **Output:**
+<img width="853" height="336" alt="image" src="https://github.com/user-attachments/assets/0b425a10-c266-4eef-891e-cb6f19cb72bc" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+--Write a SQL statement to double the availability of the product with product_id 1.
 
-```sql
--- Paste your SQL code below for Question 3
+products table
+
+```product_id product_name category_id availability
+UPDATE products 
+set  availability = availability *2
+where product_id =1;
 ```
 
 **Output:**
+<img width="856" height="226" alt="image" src="https://github.com/user-attachments/assets/2db8c3bf-3e54-4962-b778-fb385b3c91ee" />
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+--Write a SQL statement to Update the grade of all customers in Chennai city as 5.
 
-```sql
--- Paste your SQL code below for Question 4
+```
+UPDATE customer 
+set grade=5
+where city='Chennai';
 ```
 
 **Output:**
-
-![Output4](output.png)
+<img width="850" height="383" alt="image" src="https://github.com/user-attachments/assets/af9813b0-3057-44dd-b6ad-56e1473e3f6a" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+--Write a SQL query to Delete customers from 'customer' table where 'GRADE' is odd.
 
-```sql
--- Paste your SQL code below for Question 5
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+|CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO | AGENT_CODE | +-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+ | C00013 | Holmes | London | London | UK | 2 | 6000.00 | 5000.00 | 7000.00 | 4000.00 | BBBBBBB | A003 | | C00001 | Micheal | New York | New York | USA | 2 | 3000.00 | 5000.00 | 2000.00 | 6000.00 | CCCCCCC | A008 | | C00020 | Albert | New York | New York | USA | 3 | 5000.00 | 7000.00 | 6000.00 | 6000.00 | BBBBSBB | A008 | For example:
+
+Test Result select changes(); changes()
+14
+```
+DELETE FROM customer
+where grade%2=1;
 ```
 
 **Output:**
-
-![Output5](output.png)
+<img width="852" height="347" alt="image" src="https://github.com/user-attachments/assets/5652ce5c-39e8-4a1c-bb30-cc9954817508" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+--Write a SQL query to Delete a Specific Surgery which was made on 28th Feb 2024.
 
-```sql
--- Paste your SQL code below for Question 6
+Sample table: Surgeries
+
+attributes: surgery_id, patient_id, surgeon_id, surgery_date For example:
+
+Test Result SELECT * FROM surgeries; surgery_id patient_id surgeon_id surgery_date
+
+1 1 1 2024-01-15 2 2 2 2024-02-28 3 3 3 2024-03-25 surgery_id patient_id surgeon_id surgery_date
+
+1 1 1 2024-01-15 3 3 3 2024-03-25
+```
+DELETE FROM Surgeries
+where surgery_date='2024-02-28';
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="850" height="319" alt="image" src="https://github.com/user-attachments/assets/6fad2684-1ade-4baf-8c2f-269ba50ecd46" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+--Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
 
-```sql
--- Paste your SQL code below for Question 7
+Sample table: Customer
+
++-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+
+|CUST_CODE | CUST_NAME | CUST_CITY | WORKING_AREA | CUST_COUNTRY | GRADE | OPENING_AMT | RECEIVE_AMT | PAYMENT_AMT |OUTSTANDING_AMT| PHONE_NO | AGENT_CODE | +-----------+-------------+-------------+--------------+--------------+-------+-------------+-------------+-------------+---------------+--------------+------------+ | C00013 | Holmes | London | London | UK | 2 | 6000.00 | 5000.00 | 7000.00 | 4000.00 | BBBBBBB | A003 | | C00001 | Micheal | New York | New York | USA | 2 | 3000.00 | 5000.00 | 2000.00 | 6000.00 | CCCCCCC | A008 | | C00020 | Albert | New York | New York | USA | 3 | 5000.00 | 7000.00 | 6000.00 | 6000.00 | BBBBSBB | A008 | For example:
+
+Test Result select changes(); CUST_CODE CUST_NAME CUST_CITY WORKING_AREA CUST_COUNTRY GRADE OPENING_AMT RECEIVE_AMT PAYMENT_AMT OUTSTANDING_AMT PHONE_NO AGENT_CODE
+
+C00013 Holmes London London UK 2 6000 5000 7000 4000 BBBBBBB A003 changes()
+1
+
+```
+DELETE FROM Customer
+where CUST_NAME like '%Holmes%';
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="854" height="455" alt="image" src="https://github.com/user-attachments/assets/8cad862b-33d9-4481-8db5-3fc4e58525bf" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write a SQL query to Select all patients whose name starts with A.
 
-```sql
--- Paste your SQL code below for Question 8
+Table: Patients
+
+name type
+
+patient_id INT first_name VARCHAR(50) last_name VARCHAR(50) date_of_birth DATE admission_date DATE discharge_date DATE doctor_id INT For example:
+
+Result patient_id first_name last_name date_of_birth admission_date discharge_date doctor_id
+
+1 Alice Williams 1980-05-12 2024-01-10 1
+```
+--SELECT * FROM Patients
+where first_name>='A'
+and first_name<'B';
 ```
 
 **Output:**
+<img width="851" height="294" alt="image" src="https://github.com/user-attachments/assets/b80ac6fe-e6e3-450c-a6d2-6633b180ebe2" />
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+--Write a query to find all the employees whose salary is between 50000 to 100000 from employeeposition table.
 
-```sql
--- Paste your SQL code below for Question 9
+EmpID
+
+EmpPosition
+
+DateOfJoining
+
+Salary
+
+1
+
+Manager
+
+01/05/2024
+
+500000
+
+2
+
+Executive
+
+02/05/2024
+
+75000
+
+For example:
+
+Result EmpID EmpPosition DateOfJoining Salary
+
+2 Executive 2024-05-02 75000 3 Manager 2024-05-01 90000 2 Lead 2024-05-02 85000
+
+```
+-- SELECT * FROM employeeposition
+where salary between 50000 and 100000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="856" height="270" alt="image" src="https://github.com/user-attachments/assets/102095e7-ac3f-443f-b878-6077b47aaa30" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL query to assign a priority of 'Low', 'Medium', or 'High' to value2 based on whether it is less than 20, between 20 and 50, or greater than 50, respectively in the Calculations table.
 
-```sql
--- Paste your SQL code below for Question 10
+cid name type notnull dflt_value pk
+
+0 id INTEGER 0 1 1 value1 REAL 0 0 2 value2 REAL 0 0 3 base INTEGER 0 0 4 exponent INTEGER 0 0 5 number REAL 0 0 6 decimal REAL 0 0
+
+For example:
+
+Result id value2 priority
+
+1 2.0 Low 2 5.0 Low 3 7.0 Low 4 9.0 Low
+
+```
+SELECT id,value2 ,
+case 
+when value2<20 then "Low"
+when value2 between 20 and 50 then "Medium"
+else "High"
+end as priority
+from Calculations
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="851" height="552" alt="image" src="https://github.com/user-attachments/assets/b196c2ef-58e2-4a6a-bb98-287fd395bea2" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
